@@ -11,18 +11,23 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     public function indexAction(Request $request)
+
+
     {   $em = $this->getDoctrine()->getManager();
+
         $allTickets = $em->getRepository('EniamsTicketBundle:Ticket')->findAll();
 
         $ticket = new Ticket();
         $form = $this->createForm(TicketType::class, $ticket);
 
 
+        $form->handleRequest($request);
+
         if($request->isMethod('POST'))
         {
-
-            $form = handleRequest($request);
             var_dump($ticket);die();
+
+            
             $em->persist($ticket);
             $em->flush();
         }

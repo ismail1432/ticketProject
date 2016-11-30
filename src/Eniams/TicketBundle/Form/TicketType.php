@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class TicketType extends AbstractType
 {
@@ -14,7 +16,12 @@ class TicketType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('reduction')->add('price')
+        $builder->add('nom', CollectionType::class,
+            array('allow_add' => true))
+            ->add('prenom', CollectionType::class, array('allow_add' => true))
+            ->add('reduction', CollectionType::class,
+                array('allow_add' => true))
+           // ->add('price')
             ->add('save', SubmitType::class, array('label' => 'Create ticket'))
             ->getForm();
 

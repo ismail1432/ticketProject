@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Ticket</title>
+    <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
 </head>
@@ -10,19 +11,25 @@
         <h1>Ticket's !</h1>
     </div>
     <div class="row">
-    <div class="center align">
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+        <button href="#" id="add_ticket" class="btn btn-default">Ajouter 1 billet</button>
 
-    </div>
+        <div class="center align">
+
+        {{ form_start(form) }}
+
+            {{ form_row(form.nom) }}
+            {{ form_row(form.prenom) }}
+            {{ form_row(form.reduction) }}
+            {{ form_end(form) }}
+
+        </div>
     </div>
 {% if allTickets %}
     <div class="row">
         <div class="center align">
-            {% for allTickets in ticket %}
-            <p>nom : {ticket.nom}</p>
-            <p> prenom : {ticker.prenom}</p>
+            {% for  ticket in allTickets %}
+            <p>nom : {{ticket.nom  }}</p>
+            <p> prenom : {{ ticket.prenom }}</p>
 
             {% endfor %}
 
@@ -31,6 +38,39 @@
 
 {% endif %}
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
+            var $container = $('#eniams_ticketbundle_ticket_nom');
+
+            var index = $container.find(':input').length;
+
+
+            $('#add_ticket').click(function(e){
+
+                addName($container);
+                e.preventDefault();
+                return false;
+            });
+
+            function addName($container)
+            {
+                var template = $container.attr('data-prototype')
+                                .replace(/__name__label__/g, 'the name n°' + (index+1))
+                                .replace(/__name__/g,        index)
+                        ;
+                var $prototype = $(template);
+                $container.append($prototype);
+                index++;
+
+            }
+
+
+        });
+
+    </script>
+
 
 
 </body>
+</html>

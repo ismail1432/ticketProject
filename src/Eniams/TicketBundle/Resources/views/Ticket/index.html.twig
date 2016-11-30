@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+</head>
+<body class="container">
+    <div class="row">
+        <h1>Ticket's !</h1>
+    </div>
+    <div class="row">
+    <div class="center align">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+    </div>
+    </div>
+{% if allTickets %}
+    <div class="row">
+        <div class="center align">
+            {% for allTickets in ticket %}
+            <p>nom : {ticket.nom}</p>
+            <p> prenom : {ticker.prenom}</p>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endif %}
+
+
+
+</body>

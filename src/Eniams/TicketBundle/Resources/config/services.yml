@@ -1,0 +1,4 @@
+services:
+#    eniams_ticket.example:
+#        class: Eniams\TicketBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

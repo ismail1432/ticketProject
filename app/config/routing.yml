@@ -1,3 +1,7 @@
+eniams_ticket:
+    resource: "@EniamsTicketBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

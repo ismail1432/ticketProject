@@ -59,7 +59,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
 
-           $('label').addClass('toHide');
+            $('label').addClass('toHide');
             $('.toHide').css('display', 'none');
 
             var $container = $('#eniams_ticketbundle_ticket_nom'); //recupere input nom
@@ -100,9 +100,9 @@
                 var $divInput = $('<div class="input-field col s6">');
                 var $divInputPrenom = $('<div class="input-field col s6">');
 
-                $('#myForm').append($divForm);
+                $('form').append($divForm);
 
-                $divForm.append($divInput);
+                $($divForm).append($divInput);
                 $divInput.append($prototype);
 
                 $divInputPrenom.append($prototypePrenom);

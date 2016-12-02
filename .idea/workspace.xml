@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0c24e4c-81cc-4fdc-a88d-63a2c530baf3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Eniams/TicketBundle/Resources/views/Ticket/index.html.twig" afterPath="$PROJECT_DIR$/src/Eniams/TicketBundle/Resources/views/Ticket/index.html.twig" />
     </list>
     <ignored path="TicketProject.iws" />
@@ -80,8 +79,8 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Eniams/TicketBundle/Resources/views/Ticket/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="96" column="16" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="16" />
+            <state relative-caret-position="840">
+              <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -251,12 +250,12 @@
       <option name="presentableId" value="Default" />
       <updated>1480506854882</updated>
       <workItem from="1480506859369" duration="11323000" />
-      <workItem from="1480668742219" duration="2893000" />
+      <workItem from="1480668742219" duration="5474000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14216000" />
+    <option name="totallyTimeSpent" value="16797000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="24" width="900" height="1416" extended-state="6" />
@@ -436,8 +435,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Eniams/TicketBundle/Resources/views/Ticket/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="96" column="16" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="16" />
+        <state relative-caret-position="840">
+          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
           <folding />
         </state>
       </provider>

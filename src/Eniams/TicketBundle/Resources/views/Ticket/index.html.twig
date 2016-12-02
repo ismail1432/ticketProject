@@ -8,6 +8,10 @@
         .formBoarder{
 
             border: 1px solid #d500f9;
+            margin: 15px;;
+        }
+        #eniams_ticketbundle_ticket_save{
+            display: none;
         }
     </style>
 </head>
@@ -54,9 +58,8 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#eniams_ticketbundle_ticket_save').css('display', 'none');
 
-            $('label').addClass('toHide');
+           $('label').addClass('toHide');
             $('.toHide').css('display', 'none');
 
             var $container = $('#eniams_ticketbundle_ticket_nom'); //recupere input nom
@@ -93,10 +96,24 @@
 
                 $('#eniams_ticketbundle_ticket_save').css('display', 'block');
 
-                var $divForm =$('<div class="formBoarder">');
-                
-                $('#myForm').append($prototype, $prototypePrenom,
-                        $prototypeReduction +'</div>');
+                var $divForm = $('<div class="formBoarder col s6">');
+                var $divInput = $('<div class="input-field col s6">');
+                var $divInputPrenom = $('<div class="input-field col s6">');
+
+                $('#myForm').append($divForm);
+
+                $divForm.append($divInput);
+                $divInput.append($prototype);
+
+                $divInputPrenom.append($prototypePrenom);
+                $divForm.append($divInputPrenom);
+
+
+                //$divInput.after($divInput);
+                //$divInput.append($prototypePrenom);
+
+
+                 //$prototypePrenom, $prototypeReduction);
 
                 index++;
 

@@ -3,10 +3,11 @@
 namespace Eniams\TicketBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class TicketType extends AbstractType
@@ -16,12 +17,28 @@ class TicketType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom', CollectionType::class,
+        $builder
+            ->add('visitDate', DateTimeType::class, array(
+
+                'widget' => 'single_text',
+                'html5' => false,
+                'format' => 'dd-MMMM-yyyy HH:mm',
+                'model_timezone' => 'Europe/Berlin',
+                'attr' =>['class' => 'js-datepicker'],
+            ))
+
+            ->add('nom', CollectionType::class,
             array('allow_add' => true))
             ->add('prenom', CollectionType::class, array('allow_add' => true))
-            ->add('reduction', CollectionType::class,
-                array('allow_add' => true))
-           // ->add('price')
+            ->add('reduction',CollectionType::class,
+                 array(
+                     'entry_type'=> CheckboxType::class,
+                     'allow_add' => true,
+                    'label'    => 'Reduction',
+                    'required' => false,
+                ))
+            
+            ->add('price')
             ->add('save', SubmitType::class, array('label' => 'Create ticket'))
             ->getForm();
 

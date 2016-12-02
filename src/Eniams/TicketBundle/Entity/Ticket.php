@@ -51,6 +51,17 @@ class Ticket
 
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="pricevisitDate", type="datetime")
+     */
+    private $visitDate;
+
+
+
+
+
+    /**
      * Get id
      *
      * @return int
@@ -154,6 +165,30 @@ class Ticket
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set visitDate
+     *
+     * @param \DateTime $visitDate
+     *
+     * @return Ticket
+     */
+    public function setVisitDate($visitDate)
+    {
+        $this->visitDate = $visitDate;
+
+        return $this;
+    }
+
+    /**
+     * Get visitDate
+     *
+     * @return \DateTime
+     */
+    public function getVisitDate()
+    {
+        return $this->visitDate;
     }
 }
 

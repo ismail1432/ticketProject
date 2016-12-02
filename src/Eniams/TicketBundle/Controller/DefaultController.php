@@ -25,6 +25,8 @@ class DefaultController extends Controller
 
         if($request->isMethod('POST'))
         {
+            $dateResa = $_POST['eniams_ticketbundle_ticket']['visitDate'];
+            $ticket->setVisitDate($dateResa);
             var_dump($ticket);die();
 
             

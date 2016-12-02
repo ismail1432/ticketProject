@@ -22,7 +22,7 @@ class TicketType extends AbstractType
 
                 'widget' => 'single_text',
                 'html5' => false,
-                'format' => 'dd-MMMM-yyyy HH:mm',
+                'format' => 'dd/MMMM/yyyy HH:mm',
                 'model_timezone' => 'Europe/Berlin',
                 'attr' =>['class' => 'js-datepicker'],
             ))

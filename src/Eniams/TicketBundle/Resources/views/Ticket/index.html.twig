@@ -4,7 +4,12 @@
     <title>Ticket</title>
     <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <style>
+        .formBoarder{
 
+            border: 1px solid #d500f9;
+        }
+    </style>
 </head>
 <body class="container">
     <div class="row">
@@ -14,12 +19,21 @@
         <button href="#" id="add_ticket" class="btn btn-default">Ajouter 1 billet</button>
 
         <div class="center align">
-
+            <div id="myForm">
         {{ form_start(form) }}
 
+
+
             {{ form_row(form.nom) }}
+
+
+
             {{ form_row(form.prenom) }}
+
             {{ form_row(form.reduction) }}
+
+            </div>
+            {{ form_widget(form.save, {'attr': {'class': 'btn blue lighten-2'}}) }}
             {{ form_end(form) }}
 
         </div>
@@ -40,27 +54,50 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
-            var $container = $('#eniams_ticketbundle_ticket_nom');
+            $('#eniams_ticketbundle_ticket_save').css('display', 'none');
+
+            $('label').addClass('toHide');
+            $('.toHide').css('display', 'none');
+
+            var $container = $('#eniams_ticketbundle_ticket_nom'); //recupere input nom
+            var $containerPrenom = $('#eniams_ticketbundle_ticket_prenom');
+            var $containerReduction = $('#eniams_ticketbundle_ticket_reduction');
 
             var index = $container.find(':input').length;
 
 
             $('#add_ticket').click(function(e){
 
-                addName($container);
+                addName($container, $containerPrenom, $containerReduction);
                 e.preventDefault();
                 return false;
             });
 
-            function addName($container)
+            function addName($container, $containerPrenom, $containerReduction)
             {
                 var template = $container.attr('data-prototype')
-                                .replace(/__name__label__/g, 'the name n°' + (index+1))
-                                .replace(/__name__/g,        index)
-                        ;
+                                .replace(/__name__label__/g, 'Nom visiteur n°' + (index+1))
+                                .replace(/__name__/g, index);
                 var $prototype = $(template);
-                $container.append($prototype);
+
+                var templatePrenom = $containerPrenom.attr('data-prototype')
+                                .replace(/__name__label__/g, 'Prenom visiteur n°' + (index+1))
+                                .replace(/__name__/g, index);
+                var $prototypePrenom = $(templatePrenom);
+
+                var templateReduction = $containerReduction.attr('data-prototype')
+                                .replace(/__name__label__/g, 'Reduction visiteur n°' + (index+1))
+                                .replace(/__name__/g, index);
+                var $prototypeReduction = $(templateReduction);
+
+
+                $('#eniams_ticketbundle_ticket_save').css('display', 'block');
+
+                var $divForm =$('<div class="formBoarder">');
+                
+                $('#myForm').append($prototype, $prototypePrenom,
+                        $prototypeReduction +'</div>');
+
                 index++;
 
             }

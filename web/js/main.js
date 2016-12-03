@@ -16,11 +16,24 @@
                 e.preventDefault();
                 return false;
             });
+            var date = new Date();
+            date.setDate(date.getDate());
+             
+           // dayOff = ['01-05']//, '25-12'];
+             dayOff = new Date();
+             dayOff.setMonth(05,01);
+             dayOff = dayOff.toString();
+             console.log(dayOff);
             $('.js-datepicker').datetimepicker({
                 format: "dd MM yyyy - hh:ii",
                 autoclose: true,
                 language: 'fr',
-                pickerPosition: "bottom-left"
+                pickerPosition: "bottom-left",
+                startDate: date,
+                daysOfWeekDisabled: [2],
+                datesDisabled: dayOff,
+                
+                
             });
 
 

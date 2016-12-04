@@ -5,43 +5,44 @@
 
             var $container = $('#eniams_ticketbundle_ticket_nom'); //recupere input nom
             var $containerPrenom = $('#eniams_ticketbundle_ticket_prenom');
-            var $containerReduction = $('#eniams_ticketbundle_ticket_reduction');
+            var $containerPrice = $('#eniams_ticketbundle_ticket_price');
 
             var index = $container.find(':input').length;
 
 
             $('#add_ticket').click(function(e){
 
-                addName($container, $containerPrenom, $containerReduction);
+                addName($container, $containerPrenom, $containerPrice);
                 e.preventDefault();
                 return false;
             });
             var date = new Date();
             date.setDate(date.getDate());
-             
+            /*
            // dayOff = ['01-05']//, '25-12'];
              dayOff = new Date();
-             dayOff.setMonth(05,01);
-             dayOff = dayOff.toString();
-             console.log(dayOff);
+             dayOff.setMonth(04,01);
+           //  dayOff = dayOff.toString();
+             
+            console.log(dayOff);
+     
+     */
             $('.js-datepicker').datetimepicker({
                 format: "dd MM yyyy - hh:ii",
                 autoclose: true,
                 language: 'fr',
                 pickerPosition: "bottom-left",
                 startDate: date,
+                endDate: '2017-12-31',
                 daysOfWeekDisabled: [2],
-                datesDisabled: dayOff,
-                
-                
+                //datesDisabled: dayOff,
             });
-
-
+          
             function addIN($place, $insert){
                 $place.append($insert);
             }
 
-            function addName($container, $containerPrenom, $containerReduction)
+            function addName($container, $containerPrenom, $containerPrice)
             {
                 var template = $container.attr('data-prototype')
                                 .replace(/__name__label__/g, 'Nom visiteur n°' + (index+1))
@@ -53,10 +54,10 @@
                                 .replace(/__name__/g, index);
                 var $prototypePrenom = $(templatePrenom);
 
-                var templateReduction = $containerReduction.attr('data-prototype')
-                                .replace(/__name__label__/g, 'Reduction visiteur n°' + (index+1))
+                var templatePrice = $containerPrice.attr('data-prototype')
+                                .replace(/__name__label__/g, 'Prix visiteur n°' + (index+1))
                                 .replace(/__name__/g, index);
-                var $prototypeReduction = $(templateReduction);
+                var $prototypePrice = $(templatePrice);
 
 
                 $('#eniams_ticketbundle_ticket_save').css('display', 'block');
@@ -64,7 +65,7 @@
                 var $divForm = $('<div class="formBoarder col s12">');
                 var $divInput = $('<div class="input-field col s4">');
                 var $divInputPrenom = $('<div class="input-field col s4">');
-                var $divInputReduction = $('<div class="input-field col s4">');
+                var $divInputPrice = $('<div class="input-field col s4">');
 
 
                 $('form').append($divForm);
@@ -85,8 +86,8 @@
                 $divInputPrenom.append($prototypePrenom);
                 $divForm.append($divInputPrenom);
 
-                $divInputReduction.append($prototypeReduction);
-                $divForm.append($divInputReduction);
+                $divInputPrice.append($prototypePrice);
+                $divForm.append($divInputPrice);
 
                 index++;
 

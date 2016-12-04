@@ -35,12 +35,6 @@ class Ticket
      */
     private $prenom;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="reduction", type="boolean")
-     */
-    private $reduction;
 
     /**
      * @var int
@@ -116,29 +110,6 @@ class Ticket
         return $this->prenom;
     }
 
-    /**
-     * Set reduction
-     *
-     * @param boolean $reduction
-     *
-     * @return Ticket
-     */
-    public function setReduction($reduction)
-    {
-        $this->reduction = $reduction;
-
-        return $this;
-    }
-
-    /**
-     * Get reduction
-     *
-     * @return bool
-     */
-    public function getReduction()
-    {
-        return $this->reduction;
-    }
 
     /**
      * Set price
@@ -165,5 +136,28 @@ class Ticket
     }
 
    
-}
 
+    /**
+     * Set visitDate
+     *
+     * @param \DateTime $visitDate
+     *
+     * @return Ticket
+     */
+    public function setVisitDate($visitDate)
+    {
+        $this->visitDate = $visitDate;
+
+        return $this;
+    }
+
+    /**
+     * Get visitDate
+     *
+     * @return \DateTime
+     */
+    public function getVisitDate()
+    {
+        return $this->visitDate;
+    }
+}

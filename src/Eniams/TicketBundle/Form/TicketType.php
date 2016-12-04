@@ -3,12 +3,12 @@
 namespace Eniams\TicketBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class TicketType extends AbstractType
 {
@@ -27,18 +27,19 @@ class TicketType extends AbstractType
                 'attr' =>['class' => 'js-datepicker'],
             ))
 
-            ->add('nom', CollectionType::class,
-            array('allow_add' => true))
+            ->add('nom', CollectionType::class, array('allow_add' => true))
             ->add('prenom', CollectionType::class, array('allow_add' => true))
-            ->add('reduction',CollectionType::class,
-                 array(
-                     'entry_type'=> CheckboxType::class,
-                     'allow_add' => true,
-                    'label'    => 'Reduction',
-                    'required' => false,
-                ))
+            ->add('price', CollectionType::class, array('allow_add'=>true, 'entry_type' => ChoiceType::class, 
+                'entry_options'=> array(   
+                                            'label' => 'ticket', 
+                                                'choices' => array('tarif normal, à partir de 12ans 16€'=>'16', 
+                                                                    'tarif enfant, de 4 à 12 ans 8€'=>'8',
+                                                                    'tarif senior, plus de 60 ans 12€' => '12',
+                                                                    'tarif reduit, etudiant, employé du musée, militaire 10€' => '10',
+                                                                     'gratuit pour les moins de 4 ans' => '0')    
+                )))
             
-            ->add('price')
+         
             ->add('save', SubmitType::class, array('label' => 'Create ticket'))
             ->getForm();
 

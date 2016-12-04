@@ -27,6 +27,8 @@
             console.log(dayOff);
      
      */
+                //new Date(2017, 12 - 1, 25);
+              console.log(    new Date(2017, 12 - 1, 25));
             $('.js-datepicker').datetimepicker({
                 format: "dd MM yyyy - hh:ii",
                 autoclose: true,
@@ -35,7 +37,10 @@
                 startDate: date,
                 endDate: '2017-12-31',
                 daysOfWeekDisabled: [2],
-                //datesDisabled: dayOff,
+                datesDisabled: [ 
+                    new Date(2017, 12 - 1, 25), 
+                    new Date(2017, 5 - 1, 2)
+                    ]
             });
           
             function addIN($place, $insert){

@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 
 class TicketType extends AbstractType
 {
@@ -37,6 +38,12 @@ class TicketType extends AbstractType
                                                                     'tarif senior, plus de 60 ans 12€' => '12',
                                                                     'tarif reduit, etudiant, employé du musée, militaire 10€' => '10',
                                                                      'gratuit pour les moins de 4 ans' => '0')    
+                )))
+            
+            ->add('birthday', CollectionType::class, array('allow_add' => true, 'entry_type'=> BirthdayType::class,
+                'entry_options'=> array(
+                    'label' => 'date de naissance :'
+                                        
                 )))
             
          

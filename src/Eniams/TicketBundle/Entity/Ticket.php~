@@ -34,7 +34,13 @@ class Ticket
      * @ORM\Column(name="prenom", type="string", length=255)
      */
     private $prenom;
-
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birthday", type="datetime")
+     */
+    private $birthday;
 
     /**
      * @var int

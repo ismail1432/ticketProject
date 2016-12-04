@@ -1,18 +1,19 @@
  $(document).ready(function() {
 
-            $('label').addClass('toHide');
-            $('.toHide').css('display', 'none');
+           // $('label').addClass('toHide');
+           // $('.toHide').css('display', 'none');
 
             var $container = $('#eniams_ticketbundle_ticket_nom'); //recupere input nom
             var $containerPrenom = $('#eniams_ticketbundle_ticket_prenom');
             var $containerPrice = $('#eniams_ticketbundle_ticket_price');
+            var $containerBirthday = $('#eniams_ticketbundle_ticket_birthday');
 
             var index = $container.find(':input').length;
 
 
             $('#add_ticket').click(function(e){
 
-                addName($container, $containerPrenom, $containerPrice);
+                addName($container, $containerPrenom, $containerPrice, $containerBirthday);
                 e.preventDefault();
                 return false;
             });
@@ -47,7 +48,7 @@
                 $place.append($insert);
             }
 
-            function addName($container, $containerPrenom, $containerPrice)
+            function addName($container, $containerPrenom, $containerPrice, $containerBirthday)
             {
                 var template = $container.attr('data-prototype')
                                 .replace(/__name__label__/g, 'Nom visiteur n°' + (index+1))
@@ -63,6 +64,11 @@
                                 .replace(/__name__label__/g, 'Prix visiteur n°' + (index+1))
                                 .replace(/__name__/g, index);
                 var $prototypePrice = $(templatePrice);
+                
+                 var templateBirthday = $containerBirthday.attr('data-prototype')
+                                .replace(/__name__label__/g, 'Date de naissance visiteur n°' + (index+1))
+                                .replace(/__name__/g, index);
+                var $prototypeBirthday = $(templateBirthday);
 
 
                 $('#eniams_ticketbundle_ticket_save').css('display', 'block');
@@ -71,6 +77,7 @@
                 var $divInput = $('<div class="input-field col s4">');
                 var $divInputPrenom = $('<div class="input-field col s4">');
                 var $divInputPrice = $('<div class="input-field col s4">');
+                var $divInputBirthday = $('<div class="input-field col s4">');
 
 
                 $('form').append($divForm);
@@ -93,6 +100,9 @@
 
                 $divInputPrice.append($prototypePrice);
                 $divForm.append($divInputPrice);
+                
+                $divInputBirthday.append($prototypeBirthday);
+                $divForm.append($divInputBirthday);
 
                 index++;
 

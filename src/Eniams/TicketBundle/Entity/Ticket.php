@@ -34,7 +34,13 @@ class Ticket
      * @ORM\Column(name="prenom", type="string", length=255)
      */
     private $prenom;
-
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birthday", type="datetime")
+     */
+    private $birthday;
 
     /**
      * @var int
@@ -159,5 +165,29 @@ class Ticket
     public function getVisitDate()
     {
         return $this->visitDate;
+    }
+
+    /**
+     * Set birthday
+     *
+     * @param \DateTime $birthday
+     *
+     * @return Ticket
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    /**
+     * Get birthday
+     *
+     * @return \DateTime
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
     }
 }

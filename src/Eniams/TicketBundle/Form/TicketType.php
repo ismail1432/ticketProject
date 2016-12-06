@@ -32,7 +32,11 @@ class TicketType extends AbstractType
             ->add('prenom', CollectionType::class, array('allow_add' => true))
             ->add('price', CollectionType::class, array('allow_add'=>true, 'entry_type' => ChoiceType::class, 
                 'entry_options'=> array(   
-                                            'label' => 'ticket', 
+                                            'label' => 'ticket',
+                    'choice_attr' => function() {
+                        // adds a class like attending_yes, attending_no, etc
+                        return ['class' => 'price'];
+                    },
                                                 'choices' => array('tarif normal, à partir de 12ans 16€'=>'16', 
                                                                     'tarif enfant, de 4 à 12 ans 8€'=>'8',
                                                                     'tarif senior, plus de 60 ans 12€' => '12',

@@ -480,7 +480,7 @@ label{
                 {{ form_row(form.nom) }}
                 {{ form_row(form.prenom) }}
 
-                {{ form_row(form.price) }}
+                {{ form_widget(form.price,{'attr': {'class': 'price'}} ) }}
                 {{ form_row(form.birthday) }}
 
 
@@ -490,7 +490,7 @@ label{
 	<div class="row">
 		<div class="col-sm-4 col-sm-offset-4">
 			<div class="text-center">
-			<span id="thePrice">Total 150</span>
+			 <h1 >Tarif =<span id="thePrice"></span></h1>
 			</div>
 		</div>
 	</div>

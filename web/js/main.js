@@ -17,7 +17,42 @@
                 e.preventDefault();
                 return false;
             });
-            var date = new Date();
+
+     /*
+     $("select").change(function () {
+
+
+     })
+*/
+
+     $("form").change(function () {
+/*
+            total =  parseInt($('#thePrice').text());
+
+             var curent  = parseInt($('select .price:selected').val());
+
+         $('#thePrice').text(curent);
+*/
+
+         var total = 0;
+
+         $('select .price:selected').each(function(e,item){
+           total += parseInt($(item).val());
+         });
+
+         $('#thePrice').text(total);
+
+     });
+
+
+
+
+
+
+
+
+
+     var date = new Date();
             date.setDate(date.getDate());
             /*
            // dayOff = ['01-05']//, '25-12'];
@@ -29,7 +64,7 @@
      
      */
                 //new Date(2017, 12 - 1, 25);
-              console.log(    new Date(2017, 12 - 1, 25));
+            //  console.log(    new Date(2017, 12 - 1, 25));
             $('.js-datepicker').datetimepicker({
                 format: "dd MM yyyy - hh:ii",
                 autoclose: true,

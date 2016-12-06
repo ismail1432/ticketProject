@@ -485,11 +485,26 @@ label{
 
 
             </div>
-            {{ form_widget(form.save, {'attr': {'class': 'btn blue lighten-2'}}) }}
+		</div>
+		</div>
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+			<div class="text-center">
+			<span id="thePrice">Total 150</span>
+			</div>
+		</div>
+	</div>
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-4">
+					<div class="text-center">
+				{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+					</div>
+				</div>
+			</div>
+
             {{ form_end(form) }}
 
-        </div>
-    </div>
 {% if allTickets %}
     <div class="row">
         <div class="center align">

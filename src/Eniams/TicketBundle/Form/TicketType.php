@@ -42,11 +42,13 @@ class TicketType extends AbstractType
             
             ->add('birthday', CollectionType::class, array('allow_add' => true, 'entry_type'=> BirthdayType::class,
                 'entry_options'=> array(
-                    'label' => 'date de naissance :'
-                                        
+                    'label' => 'date de naissance :',
+                    'format' => 'dd - MMMM - yyyy',
+                    'widget' => 'choice',
+                    'view_timezone' => 'Europe/Berlin',
+                    'years' =>  array_combine( \range(date('Y')-90, date('Y')), \range(date('Y')-90, date('Y'))),
                 )))
-            
-         
+
             ->add('save', SubmitType::class, array('label' => 'Create ticket'))
             ->getForm();
 
